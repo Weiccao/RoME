@@ -4,13 +4,7 @@
 \alias{Generation_Correlation}
 \title{Function to generate \code{hts} with different correlation coefficient.}
 \usage{
-Generation_Correlation(
-  size.n = 9,
-  size.T = 192,
-  alpha = 0.6,
-  rho,
-  times.repeat = 1000
-)
+Generation_Correlation(size.n = 9, size.T = 192, alpha = 0.6, rho)
 }
 \arguments{
 \item{size.n}{The total number of \code{ts}.}
@@ -19,9 +13,7 @@ Generation_Correlation(
 
 \item{alpha}{value of autoregressive coeffcient.}
 
-\item{rho}{the correlation coeffcient parameter between any two bottom-level ts}
-
-\item{times.repeat}{the replication time}
+\item{rho}{the correlation coefficient parameter between any two bottom-level ts}
 }
 \value{
 \code{hts} with different correlation coefficient.

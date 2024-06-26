@@ -8,8 +8,7 @@ Generation_ScaleOfHierarchy(
   size.n = seq(10, 50, 5),
   size.T = 192,
   alpha = 0.8,
-  rho = 0.4,
-  times.repeat = 1000
+  rho = 0.4
 )
 }
 \arguments{
@@ -20,8 +19,6 @@ Generation_ScaleOfHierarchy(
 \item{alpha}{Value of the autoregressive coefficient.}
 
 \item{rho}{The correlation coefficient parameter between any two standard normality \code{ts}.}
-
-\item{times.repeat}{Replication time}
 }
 \value{
 \code{hts} with different hierarchy scale.

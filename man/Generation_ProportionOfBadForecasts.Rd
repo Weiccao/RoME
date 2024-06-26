@@ -9,8 +9,7 @@ Generation_ProportionOfBadForecasts(
   size.c,
   size.T = 192,
   type.epsilon = c("Mixture", "Tstudent", "Cauchy"),
-  range.alpha = c(0.6, 0.8),
-  times.repeat = 1000
+  range.alpha = c(0.6, 0.8)
 )
 }
 \arguments{
@@ -23,8 +22,6 @@ Generation_ProportionOfBadForecasts(
 \item{type.epsilon}{The distribution of non-Gaussian error term.}
 
 \item{range.alpha}{Lower and upper limits of the autoregressive coefficient which draw from \code{unif} distribution.}
-
-\item{times.repeat}{Replication time}
 }
 \value{
 \code{hts} with different bad forecasts proportion.

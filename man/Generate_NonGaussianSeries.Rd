@@ -10,8 +10,7 @@ Generate_NonGaussianSeries(
   size.T = 192,
   alpha = 0.8,
   rho = 0.4,
-  type.epsilon,
-  times.repeat = 1000
+  type.epsilon
 )
 }
 \arguments{
@@ -26,8 +25,6 @@ Generate_NonGaussianSeries(
 \item{rho}{The correlation coefficient parameter between any two standard normality \code{ts}.}
 
 \item{type.epsilon}{The distribution of non-Gaussian error term.}
-
-\item{times.repeat}{Replication time.}
 }
 \value{
 \code{hts} with non-Gaussian residuals

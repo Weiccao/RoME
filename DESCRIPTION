@@ -6,16 +6,17 @@ Description: Methods and tools for robust optimal reconciliation for hierarchica
 Depends:
   R (>= 3.5.0),
 Imports:
-    dplyr (>= 1.0),
     forecast (>= 1.0),
     hts (>= 1.0),
-    MASS (>= 1.0)
+    MASS (>= 1.0),
+    rlang,
+    zoo
 Version: 0.1.0
 Authors@R: c(person("Zhichao","Wang",role = "aut"),
   person("Shanshan", "Wang", email = "sswang@buaa.edu.cn", role = "aut"),
   person("Wei", "Cao", email = "caowei2208@buaa.edu.cn", role = "cre"))
 Maintainer: Cao Wei <caowei2208@buaa.edu.cn>
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

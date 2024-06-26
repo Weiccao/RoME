@@ -8,7 +8,8 @@
 #'
 #' @examples
 #'
-#' hierarchy <- rbind(rep(1, 9), c(rep(1, 3), rep(0, 6)), c(rep(0, 3), rep(1, 3), rep(0, 3)), c(rep(0, 6), rep(1, 3)), diag(1, 9))
+#' hierarchy <- rbind(rep(1, 9), c(rep(1, 3), rep(0, 6)),
+#' c(rep(0, 3), rep(1, 3), rep(0, 3)), c(rep(0, 6), rep(1, 3)), diag(1, 9))
 #' nodes <- Hierarchy2Nodes(hierarchy)
 #'
 Hierarchy2Nodes <- function(S) {

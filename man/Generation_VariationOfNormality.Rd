@@ -9,8 +9,7 @@ Generation_VariationOfNormality(
   size.T = 192,
   alpha = 0.6,
   rho = 0.4,
-  sigma,
-  times.repeat = 1000
+  sigma
 )
 }
 \arguments{
@@ -23,8 +22,6 @@ Generation_VariationOfNormality(
 \item{rho}{The correlation coefficient parameter between any two standard normality \code{ts}.}
 
 \item{sigma}{The value of variation parameter.}
-
-\item{times.repeat}{Replication time.}
 }
 \value{
 \code{hts} with different variation parameter.

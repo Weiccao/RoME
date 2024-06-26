@@ -9,8 +9,7 @@ Generation_LargeScale(
   ratio.c = 0.4,
   size.T = 192,
   type.epsilon = c("Mixture", "Tstudent", "Cauchy"),
-  range.alpha = c(0.6, 0.8),
-  times.repeat = 1000
+  range.alpha = c(0.6, 0.8)
 )
 }
 \arguments{
@@ -20,9 +19,9 @@ Generation_LargeScale(
 
 \item{size.T}{The number of observations of each \code{ts}.}
 
-\item{range.alpha}{Lower and upper limits of the autoregressive coefficient which draw from \code{unif} distribution.}
+\item{type.epsilon}{The distribution of non-Gaussian error term.}
 
-\item{times.repeat}{Replication time}
+\item{range.alpha}{Lower and upper limits of the autoregressive coefficient which draw from \code{unif} distribution.}
 }
 \value{
 \code{hts} with complexity structure.
