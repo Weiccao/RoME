@@ -47,3 +47,23 @@ A list object, which is basically a list consisting of:
 \description{
 The RoME model for HTS forecasting. Return the forecast result and computation time.
 }
+\examples{
+data("Tourism")
+data <- Tourism$data
+size.n = ncol(data)
+H1 <- Tourism$H1
+diag1<-diag(1,size.n)
+S <- as.matrix(rbind(H1,diag1))
+data.all = as.matrix(data) \%*\% t(S)
+size.T = nrow(data)
+size.m = ncol(data)
+order.train = 1:96
+order.test = (1:12)+96
+data.train = data.all[order.train, ]
+data.test = data.all[order.test, ]
+sol.base = BaseAuto(x = data.train, method.forecast = 'ETS', term = 12)
+sol.Wt = CovarianceW(data.train, method.forecast = 'ETS', is.rolling = FALSE)
+sol.LAD <- RoME_fore(base = sol.base$base, hierarchy = S, loss.diff = DiffLoss(type = 'LAD'),
+design.W = 'OLS', matrix.W = sol.Wt$W, lambda.shrink = sol.Wt$lambda)
+
+}

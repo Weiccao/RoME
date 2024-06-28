@@ -12,7 +12,7 @@ Imports:
     rlang,
     zoo
 Version: 0.1.0
-Authors@R: c(person("Zhichao","Wang",role = "aut"),
+Authors@R: c(person("Zhichao","Wang",email = "wangzc1415@buaa.edu.cn", role = "aut"),
   person("Shanshan", "Wang", email = "sswang@buaa.edu.cn", role = "aut"),
   person("Wei", "Cao", email = "caowei2208@buaa.edu.cn", role = "cre"))
 Maintainer: Cao Wei <caowei2208@buaa.edu.cn>

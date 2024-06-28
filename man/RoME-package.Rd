@@ -13,7 +13,7 @@ Methods and tools for robust optimal reconciliation for hierarchical time series
 
 Authors:
 \itemize{
-  \item Zhichao Wang
+  \item Zhichao Wang \email{wangzc1415@buaa.edu.cn}
   \item Shanshan Wang \email{sswang@buaa.edu.cn}
 }
 

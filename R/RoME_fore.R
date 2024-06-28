@@ -18,6 +18,8 @@
 #' \item{lambda}{shrink parameter}
 #' \item{sd}{standard error of residuals}
 #'
+#' @export
+#'
 
 CovarianceW <- function(x, method.forecast = 'ARIMA', is.rolling = TRUE, rolling.window = NULL) {
 
@@ -60,6 +62,9 @@ CovarianceW <- function(x, method.forecast = 'ARIMA', is.rolling = TRUE, rolling
 #'
 #' @param x  The covariance matrix.
 #' @param tau A positive constant, the default is \code{tau = 1e-16}.
+#'
+#' @export
+#'
 
 SqrtMatrix <- function(x, tau = 1e-16) {
 
@@ -78,6 +83,8 @@ SqrtMatrix <- function(x, tau = 1e-16) {
 #' Function to calculate shrinkage parameter
 #'
 #' @param residual The forecast residuls.
+#'
+#' @export
 #'
 LambdaShrink <- function(residual) {
   n <- nrow(residual)
@@ -104,6 +111,8 @@ LambdaShrink <- function(residual) {
 #'
 #' @return The first derivative form of loss function, a \code{function} object.
 #'
+#' @export
+#'
 
 DiffLoss <- function(type = 'LS', k.Huber = 1.345) {
 
@@ -129,6 +138,9 @@ DiffLoss <- function(type = 'LS', k.Huber = 1.345) {
 #' @param loss.diff The type of loss function.
 #' @param varsigma A positive perturbation, the default is \code{varsigma = 0}.
 #' @param tau A positive constant, the default is \code{tau = 1e-16}.
+#'
+#' @export
+#'
 
 DiagMatrix_DiffLoss <- function(residual, loss.diff, varsigma = 1e-8, tau = 1e-16) {
 
@@ -160,6 +172,27 @@ DiagMatrix_DiffLoss <- function(residual, loss.diff, varsigma = 1e-8, tau = 1e-1
 #' \item{call}{a \code{list} object contains arguments for RoME algorithm}
 #'
 #' @export
+#'
+#' @examples
+#' data("Tourism")
+#' data <- Tourism$data
+#' size.n = ncol(data)
+#' H1 <- Tourism$H1
+#' diag1<-diag(1,size.n)
+#' S <- as.matrix(rbind(H1,diag1))
+#' data.all = as.matrix(data) %*% t(S)
+#' size.T = nrow(data)
+#' size.m = ncol(data)
+
+#' order.train = 1:96
+#' order.test = (1:12)+96
+
+#' data.train = data.all[order.train, ]
+#' data.test = data.all[order.test, ]
+#' sol.base = BaseAuto(x = data.train, method.forecast = 'ETS', term = 12)
+#' sol.Wt = CovarianceW(data.train, method.forecast = 'ETS', is.rolling = FALSE)
+#' sol.LAD <- RoME_fore(base = sol.base$base, hierarchy = S, loss.diff = DiffLoss(type = 'LAD'),
+#' design.W = 'OLS', matrix.W = sol.Wt$W, lambda.shrink = sol.Wt$lambda)
 #'
 
 
