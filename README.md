@@ -28,14 +28,17 @@ Description of Main Simulation Code
 
 Example Usage
 ```
-# Generate HTS data
+# Generate HTS data (in RoME_Generation.R)
 Generate_NonGaussianSeries(type.epsilon = c("Normal", "Mixture", "Tstudent"))
-# Run simulation and perform RoME forecasting
+
+
+# Run simulation and perform RoME forecasting (in RoME_Process.R)
 Process_NonGaussianSeries(
   method.forecast = "ARIMA",
   design.W = c("OLS", "WLSv", "WLSs", "Sample", "Shrink")
 )
-# Export and summarize results
+
+# Export and summarize results (in RoME_Summary.R)
 Summary_NonGaussianSeries(
   range.term = list(1, 1:6, 1:12),
   range.m = list(c(2, 5:7), c(3:4, 8:13), 1:13)
