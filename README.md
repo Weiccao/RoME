@@ -1,38 +1,43 @@
-Main Execution Scripts
+We provide code to reproduce the results of the Numerical Experiments in our work Robust Optimal Reconciliation for Hierarchical Time Series Forecasting with M-estimation. Four experimental settings are considered:
 
-The folder includes four main driver scripts, each corresponding to a specific empirical or simulation study in the manuscript:
-- main_simulation.R  
-  This script runs the main simulation study across multiple scenarios, sample sizes, and
-  censoring rates. It implements DAer, IPW, and full-data estimations; saves raw simulation
-  outputs; summarizes performance metrics (bias, MSE, computation time); and generates
-  the tables and figures reported in Section 3/Supplementary of the manuscript.
+* Experiment 1: Non-Gaussian Series
+    This experiment investigates three different error distributions for a subset of bottom-level series.
+* Experiment 2: Proportion of Bad Forecasts
+    This experiment examines the impact of varying proportions of poor base forecasts on reconciliation performance in hierarchical time series (HTS).
+* Experiment 3: Correlation Between Series
+    This experiment studies the effect of different cross-series dependence structures on the reconciled results.
+* Experiment 4: Hierarchical Complexity
+    This experiment evaluates the impact of varying levels of hierarchical complexity on reconciliation performance.
 
-All scripts listed above should be executed from the project root directory to ensure that relative paths are resolved correctly.
+All scripts should be executed from the project root directory to ensure that relative paths are correctly resolved.
 
-----------------------------------------------------------------------------------------------------
-The code folder contains five main subdirectories, which store supporting code modules, datasets, figures, and output results.
-These subdirectories are described in detail below.
+⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
 
-----------------------------------------------------------------------------------------------------
+Description of Main Simulation Code
 
-- datagen_module.R  
-  This script generates covariates, true event times, and true expectile regression
-  coefficients under various data-generating scenarios. It also provides functions to
-  impose right-, left-, or interval-censoring, either adaptively or using fixed,
-  scenario-specific parameters. The output is a list of datasets suitable for subsequent
-  DAer or IPW analyses.
+* RoME_Basic.R
+    Provides core functions for the RoME algorithm and base forecasting methods.
+* RoME_Generation.R
+    Contains functions for synthetic data generation.
+* RoME_Process.R
+    Implements the main simulation procedures to reproduce the results in Robust Optimal Reconciliation for Hierarchical Time Series Forecasting with M-estimation.
+* RoME_Summary.R
+    Provides functions to summarize simulation results, including AvlRelMSE and relative RMSE improvement.
 
-- estimation_module.R  
-  This script provides functions to estimate expectile regression coefficients under
-  different censoring mechanisms, including DAer (iterative imputation), IPW (inverse
-  probability weighting), and full-data regression (ignoring censoring). It also includes
-  auxiliary functions for initial coefficient estimation and censored outcome imputation.
+⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
 
-- plot_module.R  
-  This script provides functions for loading and summarizing raw simulation results,
-  computing MSE and average computation time, and generating visualizations, including
-  stacked MSE plots, survival curves, and coefficient plots with confidence intervals.
-
-- sim_module.R  
-  This script contains core functions for running simulation studies and aggregating
-  results across repeated replications.
+Example Usage
+```
+# Generate HTS data
+Generate_NonGaussianSeries(type.epsilon = c("Normal", "Mixture", "Tstudent"))
+# Run simulation and perform RoME forecasting
+Process_NonGaussianSeries(
+  method.forecast = "ARIMA",
+  design.W = c("OLS", "WLSv", "WLSs", "Sample", "Shrink")
+)
+# Export and summarize results
+Summary_NonGaussianSeries(
+  range.term = list(1, 1:6, 1:12),
+  range.m = list(c(2, 5:7), c(3:4, 8:13), 1:13)
+)
+```
