@@ -11,7 +11,7 @@ We provide code to reproduce the results of the Numerical Experiments in our wor
 
 All scripts should be executed from the project root directory to ensure that relative paths are correctly resolved.
 
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
 
 Description of Main Simulation Code
 
@@ -24,7 +24,7 @@ Description of Main Simulation Code
 * RoME_Summary.R
     Provides functions to summarize simulation results, including AvlRelMSE and relative RMSE improvement.
 
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
 
 Example Usage
 ```
